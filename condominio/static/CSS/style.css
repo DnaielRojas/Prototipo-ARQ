@@ -14,6 +14,7 @@ nav{
 }
 
 .logo{ 
+    color: rgb(236, 230, 225);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 20px;
@@ -77,9 +78,6 @@ nav{
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
     }
-    .nav-links li{
-        opacity: 0;
-    }
 
     .burg{
         display: block;
@@ -88,4 +86,17 @@ nav{
 
 .nav-active{
     transform: translateX(0%);
+    display: block;
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
