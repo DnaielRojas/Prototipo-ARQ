@@ -51,7 +51,7 @@ class Anuncio(models.Model):
     administrativo_rut = models.ForeignKey(Administrativo, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = "evento"
+        db_table = "anuncio"
 
 class Residente(Usuario):
     morosidad = models.BooleanField()
