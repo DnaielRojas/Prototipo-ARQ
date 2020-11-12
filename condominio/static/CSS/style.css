@@ -13,6 +13,11 @@ nav{
     font-family: 'Poppins', sans-serif;
 }
 
+ul{
+    margin: 0;
+    padding: 0;
+}
+
 .logo{ 
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -24,6 +29,10 @@ nav{
     text-decoration: none;
 }
 
+.logo h4{
+    margin: 0;
+}
+
 .nav-links{
     display: flex;
     justify-content: space-around;
@@ -32,6 +41,7 @@ nav{
 
 .nav-links li{
     list-style: none;
+    margin-bottom: 0;
 }
 
 .nav-links a{
@@ -53,6 +63,34 @@ nav{
     background-color: rgb(236, 230, 225);
     margin: 5px;
     transition: all 0.3s ease;
+}
+
+.fondo-home{
+    padding: 0;
+    margin: 0;
+    background: url('/static/Imgs/condominio.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.panel-blanco-redondo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+}
+
+.panel-blanco{
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.719);
 }
 
 @media screen and (max-width:1024px){
