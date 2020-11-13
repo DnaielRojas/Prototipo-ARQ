@@ -1,10 +1,19 @@
 //Validaciones de formularios
 $().ready(function(){
+    $.validator.addMethod(
+        "formatoRut",
+        function isValidRUT(rut) {
+            if (!rut | typeof rut !== 'string') return false;
+            var regexp = /^\d{7,8}-[k|K|\d]{1}$/;
+            return regexp.test(rut);
+        }
+    );
     $('#regUsuario').validate({
         rules:{
             username:{
                 required: true,
-                rangelength: [9, 10]
+                rangelength: [9, 10],
+                formatoRut: true
             },
             password1:{
                 required: true,
@@ -35,7 +44,8 @@ $().ready(function(){
         messages:{
             username:{
                 required: "Campo Obligatorio",
-                rangelength: "Deben ser entre 9 y 10 carácteres"
+                rangelength: "Deben ser entre 9 y 10 carácteres",
+                formatoRut: "El Formato de rut debe ser 12345678-9"
             },
             password1:{
                 required: "Campo Obligatorio",
