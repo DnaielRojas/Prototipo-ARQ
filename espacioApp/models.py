@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Usuario(models.Model):
@@ -7,6 +8,7 @@ class Usuario(models.Model):
     apellido_pat = models.CharField(max_length=100)
     apellido_mat = models.CharField(max_length=100)
     mail = models.EmailField()
+    django_user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     class Meta:
         abstract = True

@@ -5,5 +5,8 @@
 {% block contenido%}
 <body>
     <center><h1>TODO EL CONTENIDO IRÁ AQUÍ</h1></center>
+    {% for mensaje in messages %}
+        {{mensaje}}
+    {% endfor %}
 </body>
 {% endblock contenido%}
