@@ -13,6 +13,7 @@ nav{
     font-family: 'Poppins', sans-serif;
 }
 
+/* margenes a 0 (bootstrap añade espacio en los márgenes inferiores) */
 ul{
     margin: 0;
     padding: 0;
@@ -49,7 +50,7 @@ p{
 .jumbotron{
     margin: 0;
 }
-
+/* navbar */
 .logo{ 
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -93,6 +94,7 @@ p{
     transition: all 0.3s ease;
 }
 
+/* fondos */
 .fondo-home{
     padding: 0;
     margin: 0;
@@ -101,6 +103,31 @@ p{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+
+/* paneles */
+.panel-normal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2em;
+}
+.panel-blanco{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255);
+}
+
+.panel-blanco-transparente{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.719);
 }
 
 .panel-blanco-redondo{
@@ -113,19 +140,13 @@ p{
     border-radius: 25px;
 }
 
-.panel-blanco{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.719);
-}
-
+/* imagenes */
 .imagen{
     display: flex;
     padding: 1em;
 }
 
+/* perspectiva según resolución (responsiveness) */
 @media screen and (max-width:1024px){
     .nav-links{
         width: 60%;
@@ -145,7 +166,7 @@ p{
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 50%;
+        width: 35%;
         transform: translateX(100%);
         transition: 0.5s ease-in;
     }
@@ -155,10 +176,12 @@ p{
     }
 }
 
+/* contracción de la navbar */
 .nav-active{
     transform: translateX(0%);
 }
 
+/* animaciones*/
 @keyframes navLinkFade{
     from{
         opacity: 0;
@@ -167,10 +190,11 @@ p{
 
     to{
         opacity: 1;
-        transform: translateX();
+        transform: translateX(0px);
     }
 }
 
+/* animación botón hamburguesa (navbar) */
 .toggle .linea1{
     transform: rotate(-45deg) translate(-5px,6px);
 }
