@@ -63,3 +63,14 @@ def registro(request):
             messages.success(request,'Registro Incorrecto: Error de formulario')
             return redirect('/registro')
     return render(request, 'registro.html', {'formulario':formulario})
+
+def login(request):
+    if request.method == 'POST':
+        usuario = authenticate(request, username=request.POST['logRut'], password=request.POST['logPass'])
+        if usuario is not None:
+            auth_login(request, usuario)
+            return redirect('/')
+        else:
+            messages.success(request, 'Ingreso incorrecto: Rut o contraseña incorrectos')
+            return redirect('/login')
+    return render(request, 'login.html', {})

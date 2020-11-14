@@ -4,7 +4,13 @@
 
 {% block contenido%}
 <body>
-    <center><h1>TODO EL CONTENIDO IRÁ AQUÍ</h1></center>
+    <center><h1>
+    {% if user.username %}
+        BIENVENIDO {{request.user.residente.nombre}} {{request.user.residente.apellido_pat}} {{request.user.residente.apellido_mat}}
+    {% else %}
+        BIENVENIDO A ESPACIOADMIN
+    {% endif %} 
+    </h1></center>
     {% for mensaje in messages %}
         {{mensaje}}
     {% endfor %}

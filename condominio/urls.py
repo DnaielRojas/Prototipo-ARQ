@@ -19,5 +19,6 @@ from condominio import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('registro/',views.registro)
+    path('registro/',views.registro),
+    path('login/',views.login)
 ]

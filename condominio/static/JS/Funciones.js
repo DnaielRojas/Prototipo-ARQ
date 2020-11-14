@@ -74,4 +74,28 @@ $().ready(function(){
             }
         }
     });
+    $('#logUsuario').validate({
+        rules:{
+            logRut:{
+                required: true,
+                rangelength: [9, 10],
+                formatoRut: true
+            },
+            logPass:{
+                required: true,
+                minlength: 8
+            }
+        },
+        messages:{
+            logRut:{
+                required: "Campo Obligatorio",
+                rangelength: "Deben ser entre 9 y 10 carácteres",
+                formatoRut: "El Formato de rut debe ser '12345678-9'"
+            },
+            logPass:{
+                required: "Campo Obligatorio",
+                minlength: "8 carácteres mínimo"
+            }
+        }
+    });
 });
