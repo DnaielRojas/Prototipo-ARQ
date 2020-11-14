@@ -45,7 +45,7 @@ $().ready(function(){
             username:{
                 required: "Campo Obligatorio",
                 rangelength: "Deben ser entre 9 y 10 carácteres",
-                formatoRut: "El Formato de rut debe ser 12345678-9"
+                formatoRut: "El Formato de rut debe ser '12345678-9'"
             },
             password1:{
                 required: "Campo Obligatorio",

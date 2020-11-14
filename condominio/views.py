@@ -21,9 +21,9 @@ class crearForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2']
-    username = forms.CharField(label="Rut (Obligatorio)",widget=forms.TextInput(attrs={'placeholder': '12345678-9'}))
-    password1 = forms.CharField(label="Contraseña (Obligatorio)",strip=False,widget=forms.PasswordInput(attrs={'placeholder': '********'}))
-    password2 = forms.CharField(label="Repetir Contraseña (Obligatorio)",strip=False,widget=forms.PasswordInput(attrs={'placeholder': '********'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '12345678-9'}))
+    password1 = forms.CharField(strip=False,widget=forms.PasswordInput(attrs={'placeholder': '********'}))
+    password2 = forms.CharField(strip=False,widget=forms.PasswordInput(attrs={'placeholder': '********'}))
     def __init__(self, *args, **kwargs):
         super(crearForm, self).__init__(*args, **kwargs)
         for fieldname in ['username', 'password1', 'password2']:
