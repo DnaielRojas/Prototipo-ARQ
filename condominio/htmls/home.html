@@ -1,31 +1,18 @@
 {% extends 'base.html' %}
-{% block titulo %} Bienvenido a EspacioAdmin {% endblock titulo %}
+{% block titulo %} Bienvenido a espacioadmin {% endblock titulo %}
 {% load static %}
+
 {% block contenido%}
 <body>
-    <div class="fondo-home">
-        <div class="container-fluid panel-normal">
-            <h1><kbd>Bienvenido a EspacioAdmin</kbd></h1>
-        </div>
-        <div class="panel-blanco-transparente">
-            <div class="col-sm-8">
-                <div class="container">
-                    <h2>¡Consigue el hogar de tus sueños!</h2>
-                    <h4>aaaaaaaaaaaaa</h4>
-                    <p>aaaaaaaaaaaaaaaaaaaaa</p>
-                </div>
-            </div>
-            <div class="col-sm-4 imagen">
-                <img class="img-fluid rounded"src="{% static 'Imgs/placeholder.jpg' %}">
-            </div>
-        </div>
-    </div>
-
-    <footer class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1>wow</h1>
-            <p>el footer</p>
-        </div>
-    </footer>
+    <center><h1>
+    {% if user.username %}
+        BIENVENIDO {{request.user.residente.nombre}} {{request.user.residente.apellido_pat}} {{request.user.residente.apellido_mat}}
+    {% else %}
+        BIENVENIDO A ESPACIOADMIN
+    {% endif %} 
+    </h1></center>
+    {% for mensaje in messages %}
+        {{mensaje}}
+    {% endfor %}
 </body>
 {% endblock contenido%}

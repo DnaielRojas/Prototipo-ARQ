@@ -18,5 +18,8 @@ from django.urls import path
 from condominio import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index,name='inicio')
+    path('', views.index),
+    path('registro/',views.registro),
+    path('login/',views.login),
+    path('logout/',views.logout)
 ]
