@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
 ###IMPORT LOGIN###
-from django.contrib.auth import authenticate, logout
+from django.contrib.auth import authenticate, logout as auth_logout
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
@@ -74,3 +74,7 @@ def login(request):
             messages.success(request, 'Ingreso incorrecto: Rut o contraseña incorrectos')
             return redirect('/login')
     return render(request, 'login.html', {})
+
+def logout(request):
+    auth_logout(request)
+    return redirect('/login')
