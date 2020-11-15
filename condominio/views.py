@@ -34,6 +34,8 @@ def index(request):
     return render(request, 'home.html', {})
 
 def registro(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     formulario = crearForm()
     if request.method == 'POST':
         formulario = crearForm(request.POST)
@@ -65,6 +67,8 @@ def registro(request):
     return render(request, 'registro.html', {'formulario':formulario})
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     if request.method == 'POST':
         usuario = authenticate(request, username=request.POST['logRut'], password=request.POST['logPass'])
         if usuario is not None:
@@ -75,6 +79,7 @@ def login(request):
             return redirect('/login')
     return render(request, 'login.html', {})
 
+@login_required(login_url='/')
 def logout(request):
     auth_logout(request)
     return redirect('/login')

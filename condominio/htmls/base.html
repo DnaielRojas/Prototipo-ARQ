@@ -56,11 +56,14 @@
         <h4><a href="{% url 'inicio' %}">EspacioAdmin</a></h4>
     </div>
     <ul class="nav-links">
+    {% if user.username %}
         <li><a href="#">Consultar</a></li>
         <li><a href="#">Eventos</a></li>
+        <li><a href="/logout">Logout</a></li>
+    {% else %}
         <li><a href="/registro">Registrate</a></li>
         <li><a href="/login">Login</a></li>
-        <li><a href="/logout">Logout</a></li>
+    {% endif %}
     </ul>
     <div class="burg">
         <div class="linea1"></div>
