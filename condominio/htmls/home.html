@@ -8,7 +8,7 @@
         <div class="container-fluid panel-normal">        
             <h1><kbd>
             {% if user.username %}
-                BIENVENIDO {{request.user.residente.nombre}} {{request.user.residente.apellido_pat}} {{request.user.residente.apellido_mat}}
+                ¡Bienvenido {{request.user.residente.nombre}} {{request.user.residente.apellido_pat}} {{request.user.residente.apellido_mat}}!
             {% else %}
                 Bienvenido a EspacioAdmin
             {% endif %} 
