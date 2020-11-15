@@ -141,10 +141,15 @@ p{
     border-radius: 25px;
 }
 
+.container{
+    padding: 2em;
+}
+
 /* imagenes */
 .imagen{
     display: flex;
     padding: 1em;
+    border-radius: 25px;
 }
 
 /* perspectiva según resolución (responsiveness) */
