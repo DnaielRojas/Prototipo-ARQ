@@ -8,7 +8,7 @@
         <div class="container-fluid panel-normal">        
             <h1><kbd>
             {% if user.username %}
-                ¡Bienvenido {{request.user.residente.nombre}} {{request.user.residente.apellido_pat}} {{request.user.residente.apellido_mat}}!
+                ¡Bienvenido, {{request.user.residente.nombre}} {{request.user.residente.apellido_pat}} {{request.user.residente.apellido_mat}}!
             {% else %}
                 Bienvenido a EspacioAdmin
             {% endif %} 
@@ -30,13 +30,6 @@
                 <img class="img-fluid imagen" src="{% static 'Imgs/placeholder.jpg' %}">
             </div>
         </div>
-
-        <footer class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1>wow</h1>
-                <p>el footer</p>
-            </div>
-        </footer>
     </div>
 </body>
 {% endblock contenido%}

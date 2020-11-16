@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block titulo %} Bienvenido a espacioadmin {% endblock titulo %}
+{% load static %}
+
+{% block contenido%}
+<body>
+    <div class="fondo-home">
+        {% if user.username %}
+        <div class="cont">
+            <div class="panel-blanco-redondo">
+                <div class="container col-sm-6">
+                    <h1>{{request.user.residente.nombre}} {{request.user.residente.apellido_pat}} {{request.user.residente.apellido_mat}}</h1>
+                    <h2>{{request.user.residente.rut}}</h2>
+                </div>
+                <div class="col-sm-6 botones">
+                    <a class="col-sm-12 btn btn-primary espacio-btn">Reservar Espacio</a>
+                    <a class="col-sm-12 btn btn-warning espacio-btn">Ver Pagos</a>
+                    <a class="col-sm-12 btn btn-danger espacio-btn">Reportar Situación</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+{% endblock contenido%}

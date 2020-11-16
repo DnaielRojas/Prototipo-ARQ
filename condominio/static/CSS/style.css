@@ -95,6 +95,15 @@ p{
     transition: all 0.3s ease;
 }
 
+.espacio-btn{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.botones{
+    display: block;
+    justify-content: space-around;
+}
 /* fondos */
 .fondo-home{
     padding: 0;
@@ -108,6 +117,10 @@ p{
 
 
 /* paneles */
+.cont{
+    padding: 4em;
+}
+
 .panel-normal{
     display: flex;
     flex-wrap: wrap;
@@ -115,6 +128,7 @@ p{
     align-items: center;
     padding: 2em;
 }
+
 .panel-blanco{
     display: flex;
     flex-wrap: wrap;
@@ -137,7 +151,7 @@ p{
     justify-content: space-around;
     align-items: center;
     padding: 2em;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.849);
     border-radius: 25px;
 }
 

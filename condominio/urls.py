@@ -21,5 +21,6 @@ urlpatterns = [
     path('', views.index,name='inicio'),
     path('registro/',views.registro),
     path('login/',views.login),
-    path('logout/',views.logout)
+    path('logout/',views.logout),
+    path('perfil/',views.perfil)
 ]

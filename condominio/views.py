@@ -1,13 +1,7 @@
-###IMPORT ESCENCIALES###
+###IMPORT ESCENCIALES (renders y redirecciones de htmls)###
 from django.shortcuts import render, redirect
 
-###IMPORT MODELOS###
-from espacioApp.models import *
-from django.contrib.auth.models import User
-
 ###IMPORT REGISTROS###
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
 ###IMPORT LOGIN###
@@ -16,18 +10,8 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
-###FUNCIONES Y CLASES###
-class crearForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ['username', 'password1', 'password2']
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '12345678-9'}))
-    password1 = forms.CharField(strip=False,widget=forms.PasswordInput(attrs={'placeholder': '********'}))
-    password2 = forms.CharField(strip=False,widget=forms.PasswordInput(attrs={'placeholder': '********'}))
-    def __init__(self, *args, **kwargs):
-        super(crearForm, self).__init__(*args, **kwargs)
-        for fieldname in ['username', 'password1', 'password2']:
-            self.fields[fieldname].help_text = None
+###FORMULARIOS###
+from espacioApp.forms import *
 
 ###VISTAS###
 def index(request):
@@ -36,9 +20,9 @@ def index(request):
 def registro(request):
     if request.user.is_authenticated:
         return redirect('/')
-    formulario = crearForm()
+    formulario = CrearForm()
     if request.method == 'POST':
-        formulario = crearForm(request.POST)
+        formulario = CrearForm(request.POST)
         filtroRut = Residente.objects.filter(rut=request.POST['username']).first()
         filtroMail = Residente.objects.filter(mail=request.POST['regMail']).first()
         if filtroRut is not None:
@@ -83,3 +67,11 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return redirect('/login')
+
+
+def perfil(request):
+    if request.user.is_authenticated:
+        return render(request, 'perfil.html', {})
+    else:
+        return redirect('/')
+    
