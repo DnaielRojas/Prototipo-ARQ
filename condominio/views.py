@@ -74,4 +74,8 @@ def perfil(request):
         return render(request, 'perfil.html', {})
     else:
         return redirect('/')
-    
+
+def mod_perfil_residente(request, rut):
+    usu = Residente.objects.get(rut=rut)
+    usu_form = ResidenteForm(instance=usu)
+    return render(request,'modificar_perfil.html',{'usu_form':usu_form,'rut':usu.rut})

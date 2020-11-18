@@ -22,5 +22,6 @@ urlpatterns = [
     path('registro/',views.registro),
     path('login/',views.login),
     path('logout/',views.logout),
-    path('perfil/',views.perfil)
+    path('perfil/',views.perfil),
+    path('modificar_residente/<rut>/',views.mod_perfil_residente)
 ]

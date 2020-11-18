@@ -15,6 +15,11 @@ class CrearForm(UserCreationForm):
         for fieldname in ['username', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
 
+class ResidenteForm(forms.ModelForm):
+    class Meta:
+        model = Residente
+        fields = ['nombre','apellido_pat','apellido_mat','mail']
+
 class EspacioForm(forms.ModelForm):
     class Meta:
         model = EspacioComun
