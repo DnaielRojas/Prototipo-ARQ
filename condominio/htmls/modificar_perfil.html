@@ -4,8 +4,17 @@
 
 {% block contenido%}
 <body>
-    <form>
-        {{usu_form}}
+    <form id="modUsuario" method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre: </label>
+        {{usu_form.nombre}}<br>
+        <label for="apellido_pat">Apellido Paterno: </label>
+        {{usu_form.apellido_pat}}<br>
+         <label for="apellido_mat">Apellido Materno: </label>
+        {{usu_form.apellido_mat}}<br>
+         <label for="mail">Mail: </label>
+        {{usu_form.mail}}<br>
+        <input type="submit" onclick="return confirm('¿Estás seguro de realizar esta acción?')" value="Modificar">
     </form>
 </body>
 {% endblock contenido%}
