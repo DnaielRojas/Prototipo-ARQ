@@ -79,3 +79,14 @@ def mod_perfil_residente(request, rut):
     usu = Residente.objects.get(rut=rut)
     usu_form = ResidenteForm(instance=usu)
     return render(request,'modificar_perfil.html',{'usu_form':usu_form,'rut':usu.rut})
+
+def editar_residente(request, rut):
+    usu = Residente.objects.get(rut=rut)
+    if request.method == "POST":
+        form = ResidenteForm(request.POST, instance=usu)
+        if form.is_valid():
+            try:
+                form.save()
+            except:
+                pass
+    return render(request,'perfil.html')

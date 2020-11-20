@@ -23,5 +23,6 @@ urlpatterns = [
     path('login/',views.login),
     path('logout/',views.logout),
     path('perfil/',views.perfil),
-    path('modificar_residente/<rut>/',views.mod_perfil_residente)
+    path('modificar_residente/<rut>/',views.mod_perfil_residente),
+    path('editar_residente/<rut>/',views.editar_residente)
 ]

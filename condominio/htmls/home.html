@@ -7,7 +7,18 @@
     <div class="fondo-home">
         <div class="container-fluid panel-normal">        
             <h1><kbd>
-            {% if user.username %}
+            {% if user.administrativo.rut %}
+                ¡Bienvenido, {{request.user.administrativo.nombre}} {{request.user.administrativo.apellido_pat}} {{request.user.administrativo.apellido_mat}}
+                {% if user.administrativo.tipo_administrativo.id_tipo == 1 %}
+                    (Administrador)!
+                {% elif user.administrativo.tipo_administrativo.id_tipo == 2 %}
+                    (Conserje)!
+                {% elif user.administrativo.tipo_administrativo.id_tipo == 3 %}
+                    (Directiva)!
+                {% else %}
+                    desconocido
+                {% endif %}
+            {% elif user.username %}
                 ¡Bienvenido, {{request.user.residente.nombre}} {{request.user.residente.apellido_pat}} {{request.user.residente.apellido_mat}}!
             {% else %}
                 Bienvenido a EspacioAdmin

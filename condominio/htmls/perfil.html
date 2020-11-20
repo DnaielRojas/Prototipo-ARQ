@@ -5,7 +5,21 @@
 {% block contenido%}
 <body>
     <div class="fondo-home">
-        {% if user.username %}
+        {% if user.administrativo %}
+        <div class="cont">
+            <div class="panel-blanco-redondo">
+                <div class="container col-sm-6">
+                    <h1>{{request.user.administrativo.nombre}} {{request.user.administrativo.apellido_pat}} {{request.user.administrativo.apellido_mat}}</h1>
+                    <h2>{{request.user.administrativo.rut}}</h2>
+                </div>
+                <div class="col-sm-6 botones">
+                    <a class="col-sm-12 btn btn-primary espacio-btn" href="/modificar_residente/{{user.username}}">Modificar Perfil</a>
+                    <a class="col-sm-12 btn btn-warning espacio-btn">Ver Pagos</a>
+                    <a class="col-sm-12 btn btn-danger espacio-btn">Reportar Situación</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
         <div class="cont">
             <div class="panel-blanco-redondo">
                 <div class="container col-sm-6">

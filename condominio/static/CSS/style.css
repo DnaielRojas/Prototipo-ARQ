@@ -14,6 +14,10 @@ nav{
     font-family: 'Poppins', sans-serif;
 }
 
+.rojo{
+    background-color: rgb(128, 46, 32);
+}
+
 /* margenes a 0 (bootstrap añade espacio en los márgenes inferiores) */
 ul{
     margin: 0;
@@ -177,6 +181,7 @@ p{
     body{
         overflow-x: hidden;
     }
+
     .nav-links{
         position: absolute;
         right: 0px;
@@ -191,6 +196,10 @@ p{
         transition: 0.5s ease-in;
     }
 
+    .rojo-claro{
+        background-color: rgb(172, 72, 54);
+    }
+    
     .burg{
         display: block;
     }
