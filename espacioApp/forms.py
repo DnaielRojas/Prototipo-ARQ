@@ -23,6 +23,10 @@ class ResidenteForm(forms.ModelForm):
     class Meta:
         model = Residente
         fields = ['nombre','apellido_pat','apellido_mat','mail']
+    nombre = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Cesar'}))
+    apellido_pat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Poblete'}))
+    apellido_mat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Sepúlveda'}))
+    mail = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'mail@ejemplo.com'}))
 
 class AdministrativoForm(forms.ModelForm):
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))

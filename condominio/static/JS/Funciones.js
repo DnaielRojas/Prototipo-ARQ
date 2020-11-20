@@ -98,4 +98,42 @@ $().ready(function(){
             }
         }
     });
+    $('#modUsuario').validate({
+        rules:{
+            nombre:{
+                required: true,
+                maxlength: 50
+            },
+            apellido_pat:{
+                required: true,
+                maxlength: 50
+            },
+            apellido_mat:{
+                required: true,
+                maxlength: 50
+            },
+            mail:{
+                required: true,
+                email: true
+            }
+        },
+        messages:{
+            nombre:{
+                required: "Campo Obligatorio",
+                maxlength: "Límite alcanzado"
+            },
+            apellido_pat:{
+                required: "Campo Obligatorio",
+                maxlength: "Límite alcanzado"
+            },
+            apellido_mat:{
+                required: "Campo Obligatorio",
+                maxlength: "Límite alcanzado"
+            },
+            mail:{
+                required: "Campo Obligatorio",
+                email: "Ingrese mail válido"
+            }
+        }
+    });
 });

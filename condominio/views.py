@@ -68,12 +68,9 @@ def logout(request):
     auth_logout(request)
     return redirect('/login')
 
-
+@login_required(login_url='/')
 def perfil(request):
-    if request.user.is_authenticated:
-        return render(request, 'perfil.html', {})
-    else:
-        return redirect('/')
+    return render(request, 'perfil.html', {})
 
 def mod_perfil_residente(request, rut):
     usu = Residente.objects.get(rut=rut)
