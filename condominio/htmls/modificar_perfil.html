@@ -5,23 +5,25 @@
 {% block contenido%}
 <body>
     <div class="fondo-home">
-        <div class="cont">
+        <div class="container">
             <div class="panel-blanco-redondo">
                 <div class="col-sm-12">
                     <h1>{{ rut }}</h1>
                 </div>
-                <form action="/editar_residente/{{rut}}/" method="POST">
-                    {% csrf_token %}
-                    <label for="nombre">Nombre:</label>
-                    {{usu_form.nombre}}
-                    <label for="apelido_pat">Apellido Paterno:</label>
-                    {{usu_form.apellido_pat}}
-                    <label for="apellido_mat">Apellido Materno:</label>
-                    {{usu_form.apellido_mat}}
-                    <label for="mail">Correo:</label>
-                    {{usu_form.mail}}
-                    <input type="submit" onclick="return confirm('¿Estás seguro de realizar esta acción?')" class="col-sm-12 btn btn-primary espacio-btn" value="Confirmar Cambios">
-                </form>
+                <div class="form-group col-sm-12">
+                    <form action="/editar_residente/{{rut}}/" method="POST">
+                        {% csrf_token %}
+                        <label for="nombre">Nombre:</label>
+                        {{usu_form.nombre}}
+                        <label for="apelido_pat">Apellido Paterno:</label>
+                        {{usu_form.apellido_pat}}
+                        <label for="apellido_mat">Apellido Materno:</label>
+                        {{usu_form.apellido_mat}}
+                        <label for="mail">Correo:</label>
+                        {{usu_form.mail}}
+                        <input type="submit" onclick="return confirm('¿Estás seguro de realizar esta acción?')" class="col-sm-12 btn btn-primary espacio-btn" value="Confirmar Cambios">
+                    </form>
+                </div>
             </div>
         </div>
     </div>

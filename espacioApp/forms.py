@@ -16,17 +16,13 @@ class CrearForm(UserCreationForm):
             self.fields[fieldname].help_text = None
 
 class ResidenteForm(forms.ModelForm):
-    nombre = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    apellido_pat = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    apellido_mat = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    mail = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
     class Meta:
         model = Residente
         fields = ['nombre','apellido_pat','apellido_mat','mail']
-    nombre = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Cesar'}))
-    apellido_pat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Poblete'}))
-    apellido_mat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Sepúlveda'}))
-    mail = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'mail@ejemplo.com'}))
+    nombre = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Cesar', 'class': 'form-control' }))
+    apellido_pat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Poblete', 'class': 'form-control'}))
+    apellido_mat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Sepúlveda', 'class': 'form-control'}))
+    mail = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'mail@ejemplo.com', 'class': 'form-control'}))
 
 class AdministrativoForm(forms.ModelForm):
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))

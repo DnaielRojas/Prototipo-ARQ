@@ -4,26 +4,32 @@
 
 {% block contenido%}
 <body>
-    <form id="regUsuario" method="post">
-        {% csrf_token %}
-        <label for="username">Rut (Obligatorio):</label>
-        {{formulario.username}}<br>
-        <label for="regNombre">Nombre (Obligatorio):</label>
-        <input class="form-control" type="text" name="regNombre" placeholder="Cesar"><br>
-        <label for="regAp_pat">Apellido Paterno (Obligatorio):</label>
-        <input class="form-control" type="text" name="regAp_pat" placeholder="Poblete"><br>
-        <label for="regAp_mat">Apellido Materno (Obligatorio):</label>
-        <input class="form-control" type="text" name="regAp_mat" placeholder="Sepúlveda"><br>
-        <label for="password1">Contraseña (Obligatorio):</label>
-        {{formulario.password1}}<br>
-        <label for="password2">Repetir Contraseña (Obligatorio):</label>
-        {{formulario.password2}}<br>
-        <label for="regMail">Mail (Obligatorio):</label>
-        <input class="form-control" type="text" name="regMail" placeholder="mail@ejemplo.com"><br>
-        {% for mensaje in messages %}
-            {{mensaje}}<br>
-        {% endfor %}
-        <input type="submit" value="Registrar Usuario" onclick="return confirm('¿Estás seguro de realizar esta acción?')">
-    </form>
+    <div class="container"> 
+        <div class="card">
+            <div class="card-body">  
+                <form id="regUsuario" method="post">
+                    {% csrf_token %}
+                    <label for="username">Rut (Obligatorio):</label>
+                    {{formulario.username}}<br>
+                    <label for="regNombre">Nombre (Obligatorio):</label>
+                    <input class="form-control" type="text" name="regNombre" placeholder="Cesar"><br>
+                    <label for="regAp_pat">Apellido Paterno (Obligatorio):</label>
+                    <input class="form-control" type="text" name="regAp_pat" placeholder="Poblete"><br>
+                    <label for="regAp_mat">Apellido Materno (Obligatorio):</label>
+                    <input class="form-control" type="text" name="regAp_mat" placeholder="Sepúlveda"><br>
+                    <label for="password1">Contraseña (Obligatorio):</label>
+                    {{formulario.password1}}<br>
+                    <label for="password2">Repetir Contraseña (Obligatorio):</label>
+                    {{formulario.password2}}<br>
+                    <label for="regMail">Mail (Obligatorio):</label>
+                    <input class="form-control" type="text" name="regMail" placeholder="mail@ejemplo.com"><br>
+                    {% for mensaje in messages %}
+                        {{mensaje}}<br>
+                    {% endfor %}
+                    <input type="submit" value="Registrar Usuario" class="btn btn-primary" onclick="return confirm('¿Estás seguro de realizar esta acción?')">
+                </form>
+            </div>
+        </div> 
+    </div>      
 </body>
 {% endblock contenido%}
