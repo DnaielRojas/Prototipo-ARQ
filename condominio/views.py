@@ -87,3 +87,6 @@ def editar_residente(request, rut):
             except:
                 pass
     return render(request,'perfil.html')
+
+
+
