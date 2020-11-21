@@ -13,9 +13,15 @@ from django.contrib.admin.views.decorators import staff_member_required
 ###FORMULARIOS###
 from espacioApp.forms import *
 
+###FILTROS###
+from espacioApp.filters import ResidenteFiltro
+
 ###VISTAS###
 def index(request):
     return render(request, 'home.html', {})
+
+def herramientas(request):
+    return render(request, 'herramientas.html', {})
 
 def registro(request):
     if request.user.is_authenticated:
@@ -88,5 +94,32 @@ def editar_residente(request, rut):
                 pass
     return render(request,'perfil.html')
 
+def mod_residente_admin(request, rut):
+    res = Residente.objects.get(rut=rut)
+    form = ModificarResidenteForm(instance=res)
+    return render(request,'modificar_perfil.html',{'form':form,'resrut':res.rut})
 
+def editar_residente_admin(request, rut):
+    usu = Residente.objects.get(rut=rut)
+    if request.method == "POST":
+        form = ModificarResidenteForm(request.POST, instance=usu)
+        if form.is_valid():
+            try:
+                form.save()
+            except:
+                pass
+    
+    form = FiltroResidenteForm()
+    residentes = Residente.objects.all()
 
+    filtro = ResidenteFiltro(request.GET, queryset=residentes)
+    residentes  = filtro.qs
+    return render(request,'administrar_usuarios.html',{'form':form,'residentes':residentes,'filtro':filtro})
+
+def gestion_usuarios(request):
+    form = FiltroResidenteForm()
+    residentes = Residente.objects.all()
+
+    filtro = ResidenteFiltro(request.GET, queryset=residentes)
+    residentes  = filtro.qs
+    return render(request,'administrar_usuarios.html',{'form':form,'residentes':residentes,'filtro':filtro})

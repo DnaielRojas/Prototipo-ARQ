@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from espacioApp.models import *
+from espacioApp.models import Residente, Administrativo, EspacioComun, Reserva, Reporte, TipoEspacioComun, TipoReporte
 
 class CrearForm(UserCreationForm):
     class Meta:
@@ -23,6 +23,29 @@ class ResidenteForm(forms.ModelForm):
     apellido_pat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Poblete', 'class': 'form-control'}))
     apellido_mat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Sepúlveda', 'class': 'form-control'}))
     mail = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'mail@ejemplo.com', 'class': 'form-control'}))
+
+class FiltroResidenteForm(forms.ModelForm):
+    class Meta:
+        model = Residente
+        fields = ['rut', 'nombre','apellido_pat','apellido_mat','mail', 'morosidad', 'habilitado']
+    rut = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Cesar', 'class': 'form-control' }))
+    nombre = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Cesar', 'class': 'form-control' }))
+    apellido_pat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Poblete', 'class': 'form-control'}))
+    apellido_mat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Sepúlveda', 'class': 'form-control'}))
+    mail = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'mail@ejemplo.com', 'class': 'form-control'}))
+    morosidad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
+    habilitado = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
+
+class ModificarResidenteForm(forms.ModelForm):
+    class Meta:
+        model = Residente
+        fields = ['nombre','apellido_pat','apellido_mat','mail', 'morosidad', 'habilitado']
+    nombre = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Cesar', 'class': 'form-control' }))
+    apellido_pat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Poblete', 'class': 'form-control'}))
+    apellido_mat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Sepúlveda', 'class': 'form-control'}))
+    mail = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'mail@ejemplo.com', 'class': 'form-control'}))
+    morosidad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
+    habilitado = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
 
 class AdministrativoForm(forms.ModelForm):
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))

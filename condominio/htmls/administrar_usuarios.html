@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block titulo %} Bienvenido a espacioadmin {% endblock titulo %}
+{% load static %}
+
+{% block contenido%}
+<body>
+    <div class="fondo-home">
+        <form method="GET">
+            <div class="cont">
+                <h4><kbd>Filtros de Busqueda</kbd></h4>
+                <div class="panel-blanco-redondo">
+                    {% csrf_token %}
+                    <label for="rut">Rut:</label>
+                    {{ filtro.form.rut }}
+                    <label for="nombre">Nombre:</label>
+                    {{ filtro.form.nombre }}
+                    <label for="apelido_pat">Apellido Paterno:</label>
+                    {{ filtro.form.apellido_pat }}
+                    <label for="apellido_mat">Apellido Materno:</label>
+                    {{ filtro.form.apellido_mat }}
+                    <label for="mail">Correo:</label>
+                    {{ filtro.form.mail }}
+                    <label for="morosidad">Morosidad:</label>
+                    {{ filtro.form.morosidad }}
+                    <label for="habilitado">Habilitado:</label>
+                    {{ filtro.form.habilitado }}
+                    <input class="col-sm-12 btn btn-primary" type="submit" value="Buscar">
+                </div>
+            </div>
+        </form>
+
+        {% for res in residentes %}
+        <div class="cont">
+            <div class="panel-blanco-redondo">
+                <div class="col-sm-6">
+                    <h1>{{ res.nombre }} {{ res.apellido_pat }} {{ res.apellido_mat }}</h1>
+                    <h4>{{ res.rut }}</h4>
+                </div>
+                <div class="col-sm-6">
+                    <a class="col-sm-12 btn btn-primary espacio-btn" href="/mod_residente_admin/{{res.rut}}/">Modificar</a>
+                    <a class="col-sm-12 btn btn-danger espacio-btn" href="#">¿¿¿Eliminar Residente???</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+{% endblock contenido%}

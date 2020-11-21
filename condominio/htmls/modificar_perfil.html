@@ -7,6 +7,26 @@
     <div class="fondo-home">
         <div class="container">
             <div class="panel-blanco-redondo">
+                {% if user.administrativo.tipo_administrativo.id_tipo == 1 %}
+                <div class="form-group col-sm-12">
+                    <form action="/editar_residente_admin/{{resrut}}/" method="POST">
+                        {% csrf_token %}
+                        <label for="nombre">Nombre:</label>
+                        {{form.nombre}}
+                        <label for="apelido_pat">Apellido Paterno:</label>
+                        {{form.apellido_pat}}
+                        <label for="apellido_mat">Apellido Materno:</label>
+                        {{form.apellido_mat}}
+                        <label for="mail">Correo:</label>
+                        {{form.mail}}
+                        <label for="morosidad">Morosidad:</label>
+                        {{form.morosidad}}
+                        <label for="habilitado">Habilitado:</label>
+                        {{form.habilitado}}
+                        <input type="submit" onclick="return confirm('¿Estás seguro de realizar esta acción?')" class="col-sm-12 btn btn-primary espacio-btn" value="Confirmar Cambios">
+                    </form>
+                </div>
+                {% else %}
                 <div class="col-sm-12">
                     <h1>{{ rut }}</h1>
                 </div>
@@ -24,6 +44,7 @@
                         <input type="submit" onclick="return confirm('¿Estás seguro de realizar esta acción?')" class="col-sm-12 btn btn-primary espacio-btn" value="Confirmar Cambios">
                     </form>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -24,5 +24,9 @@ urlpatterns = [
     path('logout/',views.logout),
     path('perfil/',views.perfil),
     path('modificar_residente/<rut>/',views.mod_perfil_residente),
-    path('editar_residente/<rut>/',views.editar_residente)
+    path('editar_residente/<rut>/',views.editar_residente),
+    path('herramientas/',views.herramientas),
+    path('gestion_usuarios/',views.gestion_usuarios),
+    path('mod_residente_admin/<rut>/',views.mod_residente_admin),
+    path('editar_residente_admin/<rut>/',views.editar_residente_admin)
 ]

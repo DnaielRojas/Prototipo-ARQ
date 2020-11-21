@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block titulo %} Bienvenido a espacioadmin {% endblock titulo %}
+{% load static %}
+
+{% block contenido%}
+<body>
+    <div class="fondo-home">
+        <div class="cont">
+            <div class="panel-blanco-redondo">
+                <div class="col-sm-6">
+                    <a class="col-sm-12 btn btn-primary espacio-btn" href="/gestion_usuarios/">Administrar Usuarios</a>
+                    <a class="col-sm-12 btn btn-primary espacio-btn"></a>
+                </div>
+                <div class="col-sm-6">
+                    <a class="col-sm-12 btn btn-danger espacio-btn">Reportar Situación</a>
+                    <a class="col-sm-12 btn btn-primary espacio-btn"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock contenido%}
