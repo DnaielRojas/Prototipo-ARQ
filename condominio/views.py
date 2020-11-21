@@ -86,10 +86,26 @@ def mod_perfil_residente(request, rut):
     usu_form = ResidenteForm(instance=usu)
     return render(request,'modificar_perfil.html',{'usu_form':usu_form,'rut':usu.rut})
 
+def mod_perfil_administrativo(request, rut):
+    adm = Administrativo.objects.get(rut=rut)
+    adm_form = AdministrativoForm(instance=adm)
+    return render(request,'modificar_perfil_admin.html',{'adm_form':adm_form,'rut':adm.rut})
+
 def editar_residente(request, rut):
     usu = Residente.objects.get(rut=rut)
     if request.method == "POST":
         form = ResidenteForm(request.POST, instance=usu)
+        if form.is_valid():
+            try:
+                form.save()
+            except:
+                pass
+    return render(request,'perfil.html')
+
+def editar_admin(request, rut):
+    adm = Administrativo.objects.get(rut=rut)
+    if request.method == "POST":
+        form = ResidenteForm(request.POST, instance=adm)
         if form.is_valid():
             try:
                 form.save()
@@ -127,30 +143,16 @@ def gestion_usuarios(request):
     residentes  = filtro.qs
     return render(request,'administrar_usuarios.html',{'form':form,'residentes':residentes,'filtro':filtro})
 
-def gastos_Agregar(request):
+def gastos_agregar(request):
     l_gastos = GastoComun.objects.all()
     if request.method == "POST":
         form = GastosForm(request.POST)
         if form.is_valid():
             try:
                 form.save()
-                return redirect('/gastos')
+                return redirect('/gastos_agregar')
             except:
                 pass
     else:
         form = GastosForm()      
-    return render(request,'Agregar_gastos.html',{'form': form, 'gastos': l_gastos})
-
-def pago_Agregar(request):
-    l_pago = Pago.objects.all()
-    if request.method == "POST":
-        form = PagoForm(request.POST)
-        if form.is_valid():
-            try:
-                form.save()
-                return redirect('/gastos')
-            except:
-                pass
-    else:
-        form = PagoForm()      
-    return render(request,'Agregar_pago.html',{'form': form, 'pago': l_pago})
+    return render(request,'agregar_gastos.html',{'form': form, 'gastos': l_gastos})

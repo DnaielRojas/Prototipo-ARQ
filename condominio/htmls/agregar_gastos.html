@@ -8,7 +8,7 @@
         <div class="container">
             <div class="panel-blanco-redondo">
                 <div class="form-group col-sm-12">
-                    <form action="" method="POST">
+                    <form action="/gastos_agregar/" method="POST">
                         {% csrf_token %}
                         <div class="form-group">
                             ingrese el valor del gasto comun
@@ -25,10 +25,6 @@
                         <div class="form-group">
                             el estado de la cuenta
                             {{form.estado}}
-                        </div>
-                        <div>
-                            id_pago
-                            {{form.id_pago}}
                         </div>
                         <div class="form-group">
                             seleccione el rut del residente
@@ -47,7 +43,6 @@
                                 <th>fecha emision </th>
                                 <th>fecha vencimiento</th>
                                 <th>estado</th>
-                                <th>id del pago</th>
                                 <th colspan="2">acciones </th>
                             </tr>
                             {% for g in gastos %}
@@ -58,7 +53,6 @@
                                 <td>{{g.fecha_emision}}</td>
                                 <td>{{g.fecha_vencimiento}}</td>
                                 <td>{{g.estado}}</td>
-                                <td>{{g.id_pago.id_pago}}</td>
                                 <td>
 
                                    <a  class="btn btn-warning" href="">Modificar</a>
@@ -68,6 +62,8 @@
                                 </td>
                             </tr>
                             {% endfor %}   
+                        </thead>
+                    </table>
                 </div>
             </div>
         </div>

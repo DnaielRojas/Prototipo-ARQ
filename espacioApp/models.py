@@ -63,7 +63,6 @@ class Residente(Usuario):
 
     class Meta:
         db_table = "residente"
-        
 
 class Vivienda(models.Model):
     numero = models.IntegerField(primary_key=True)
@@ -91,14 +90,6 @@ class Reporte(models.Model):
     class Meta:
         db_table = "reporte"
 
-class Pago(models.Model):
-    id_pago = models.AutoField(primary_key=True)
-    total = models.IntegerField()
-    fecha = models.DateField()
-
-    class Meta:
-        db_table = "pago"
-
 class TipoEspacioComun(models.Model):
     id_tipo = models.CharField(max_length=5, primary_key=True)
     nombre = models.CharField(max_length=30)
@@ -120,7 +111,6 @@ class Reserva(models.Model):
     estado = models.BooleanField()
     id_espacio = models.ForeignKey(EspacioComun, on_delete=models.CASCADE)
     residente_rut = models.ForeignKey(Residente, on_delete=models.CASCADE)
-    id_pago = models.ForeignKey(Pago, on_delete=models.CASCADE)
 
     class Meta:
         db_table = "reserva"
@@ -130,7 +120,6 @@ class Multa(models.Model):
     valor = models.IntegerField()
     fecha_emision = models.DateField()
     estado= models.BooleanField()
-    id_pago = models.ForeignKey(Pago, on_delete=models.CASCADE)
     residente_rut = models.ForeignKey(Residente, on_delete=models.CASCADE)
 
     class Meta:
@@ -142,7 +131,6 @@ class GastoComun(models.Model):
     fecha_emision = models.DateField()
     fecha_vencimiento = models.DateField()
     estado = models.BooleanField()
-    id_pago = models.ForeignKey(Pago, on_delete=models.CASCADE)
     residente_rut = models.ForeignKey(Residente, on_delete=models.CASCADE)
 
     class Meta:

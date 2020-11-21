@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block titulo %} Bienvenido a espacioadmin {% endblock titulo %}
+{% load static %}
+
+{% block contenido%}
+<body>
+    <div class="fondo-home">
+        <div class="container">
+            <div class="panel-blanco-redondo">
+                {% if user.administrativo %}
+                <div class="col-sm-12">
+                    <h1>{{ rut }}</h1>
+                </div>
+                <div class="form-group col-sm-12">
+                    <form action="/editar_admin/{{rut}}/" method="POST">
+                        {% csrf_token %}
+                        <label for="nombre">Nombre:</label>
+                        {{adm_form.nombre}}
+                        <label for="apelido_pat">Apellido Paterno:</label>
+                        {{adm_form.apellido_pat}}
+                        <label for="apellido_mat">Apellido Materno:</label>
+                        {{adm_form.apellido_mat}}
+                        <label for="mail">Correo:</label>
+                        {{adm_form.mail}}
+                        <input type="submit" onclick="return confirm('¿Estás seguro de realizar esta acción?')" class="col-sm-12 btn btn-primary espacio-btn" value="Confirmar Cambios">
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock contenido%}

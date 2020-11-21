@@ -13,9 +13,7 @@
                     <h2>{{request.user.administrativo.rut}}</h2>
                 </div>
                 <div class="col-sm-6 botones">
-                    <a class="col-sm-12 btn btn-primary espacio-btn" href="/modificar_residente/{{user.username}}">Modificar Perfil</a>
-                    <a class="col-sm-12 btn btn-warning espacio-btn">Ver Pagos</a>
-                    <a class="col-sm-12 btn btn-danger espacio-btn">Reportar Situación</a>
+                    <a class="col-sm-12 btn btn-primary espacio-btn" href="/mod_perfil_administrativo/{{user.username}}">Modificar Perfil</a>
                 </div>
             </div>
         </div>
@@ -27,9 +25,8 @@
                     <h2>{{request.user.residente.rut}}</h2>
                 </div>
                 <div class="col-sm-6 botones">
-                    <a class="col-sm-12 btn btn-primary espacio-btn" href="/modificar_residente/{{user.username}}">Modificar Perfil</a>
+                    <a class="col-sm-12 btn btn-primary espacio-btn" href="/mod_perfil_residente/{{user.username}}">Modificar Perfil</a>
                     <a class="col-sm-12 btn btn-warning espacio-btn">Ver Pagos</a>
-                    <a class="col-sm-12 btn btn-danger espacio-btn">Reportar Situación</a>
                 </div>
             </div>
         </div>

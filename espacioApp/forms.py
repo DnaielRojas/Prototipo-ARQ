@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from espacioApp.models import Residente, Administrativo, EspacioComun, Reserva, Reporte, TipoEspacioComun, TipoReporte, GastoComun, Pago
+from espacioApp.models import Residente, Administrativo, EspacioComun, Reserva, Reporte, TipoEspacioComun, TipoReporte, GastoComun
 
 class CrearForm(UserCreationForm):
     class Meta:
@@ -44,8 +44,8 @@ class ModificarResidenteForm(forms.ModelForm):
     apellido_pat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Poblete', 'class': 'form-control'}))
     apellido_mat = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Sepúlveda', 'class': 'form-control'}))
     mail = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'mail@ejemplo.com', 'class': 'form-control'}))
-    morosidad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
-    habilitado = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
+    morosidad = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), required=False)
+    habilitado = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), required=False)
 
 class AdministrativoForm(forms.ModelForm):
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -76,10 +76,5 @@ class ReportarForm(forms.ModelForm):
 class GastosForm (forms.ModelForm):
     class Meta:
         model= GastoComun
-        fields = "__all__"
-
-class PagoForm (forms.ModelForm):
-    class Meta:
-        model= Pago
-        fields = "__all__"
+        fields = ['valor', 'fecha_emision', 'fecha_vencimiento', 'estado', 'residente_rut']
         
