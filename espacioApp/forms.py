@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from espacioApp.models import Residente, Administrativo, EspacioComun, Reserva, Reporte, TipoEspacioComun, TipoReporte
+from espacioApp.models import Residente, Administrativo, EspacioComun, Reserva, Reporte, TipoEspacioComun, TipoReporte, GastoComun, Pago
 
 class CrearForm(UserCreationForm):
     class Meta:
@@ -72,3 +72,14 @@ class ReportarForm(forms.ModelForm):
         model = Reporte
         fields = ['id_reporte','residente_rut']
     tipo_reporte = forms.ModelChoiceField(queryset=TipoReporte.objects.all())
+
+class GastosForm (forms.ModelForm):
+    class Meta:
+        model= GastoComun
+        fields = "__all__"
+
+class PagoForm (forms.ModelForm):
+    class Meta:
+        model= Pago
+        fields = "__all__"
+        

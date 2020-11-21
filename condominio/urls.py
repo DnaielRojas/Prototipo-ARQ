@@ -28,5 +28,7 @@ urlpatterns = [
     path('herramientas/',views.herramientas),
     path('gestion_usuarios/',views.gestion_usuarios),
     path('mod_residente_admin/<rut>/',views.mod_residente_admin),
-    path('editar_residente_admin/<rut>/',views.editar_residente_admin)
+    path('editar_residente_admin/<rut>/',views.editar_residente_admin),
+    path('gastos/', views.gastos_Agregar),
+    path('pago/', views.pago_Agregar),
 ]

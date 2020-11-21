@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block titulo %} Bienvenido a espacioadmin {% endblock titulo %}
+{% load static %}
+
+{% block contenido%}
+<body>
+    <div class="fondo-home">
+        <div class="container">
+            <div class="panel-blanco-redondo">
+                <div class="form-group col-sm-12">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            Ingrese pago
+                            {{form.total}}
+                        </div>
+                        <div>
+                            ingrese fecha de vencimiento
+                            {{form.fecha}}
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="Agregar Gastos comunes" >
+                        </div>
+
+                    </form>    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock contenido%}

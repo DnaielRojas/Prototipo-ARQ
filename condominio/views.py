@@ -16,6 +16,9 @@ from espacioApp.forms import *
 ###FILTROS###
 from espacioApp.filters import ResidenteFiltro
 
+###models### 
+from espacioApp.models import *
+
 ###VISTAS###
 def index(request):
     return render(request, 'home.html', {})
@@ -123,3 +126,31 @@ def gestion_usuarios(request):
     filtro = ResidenteFiltro(request.GET, queryset=residentes)
     residentes  = filtro.qs
     return render(request,'administrar_usuarios.html',{'form':form,'residentes':residentes,'filtro':filtro})
+
+def gastos_Agregar(request):
+    l_gastos = GastoComun.objects.all()
+    if request.method == "POST":
+        form = GastosForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/gastos')
+            except:
+                pass
+    else:
+        form = GastosForm()      
+    return render(request,'Agregar_gastos.html',{'form': form, 'gastos': l_gastos})
+
+def pago_Agregar(request):
+    l_pago = Pago.objects.all()
+    if request.method == "POST":
+        form = PagoForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/gastos')
+            except:
+                pass
+    else:
+        form = PagoForm()      
+    return render(request,'Agregar_pago.html',{'form': form, 'pago': l_pago})

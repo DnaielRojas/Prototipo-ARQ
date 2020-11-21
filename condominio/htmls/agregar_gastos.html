@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block titulo %} Bienvenido a espacioadmin {% endblock titulo %}
+{% load static %}
+
+{% block contenido%}
+<body>
+    <div class="fondo-home">
+        <div class="container">
+            <div class="panel-blanco-redondo">
+                <div class="form-group col-sm-12">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            ingrese el valor del gasto comun
+                            {{form.valor}}
+                        </div>
+                        <div class="form-group">
+                            Ingrese la fecha de emision
+                            {{form.fecha_emision}}
+                        </div>
+                        <div>
+                            ingrese fecha de vencimiento
+                            {{form.fecha_vencimiento}}
+                        </div>
+                        <div class="form-group">
+                            el estado de la cuenta
+                            {{form.estado}}
+                        </div>
+                        <div>
+                            id_pago
+                            {{form.id_pago}}
+                        </div>
+                        <div class="form-group">
+                            seleccione el rut del residente
+                            {{form.residente_rut}}
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="Agregar Gastos comunes" >
+                        </div>
+                    </form> 
+                    <table  class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID  </th>
+                                <th>rut  </th>
+                                <th>valor  </th>
+                                <th>fecha emision </th>
+                                <th>fecha vencimiento</th>
+                                <th>estado</th>
+                                <th>id del pago</th>}
+                                <th colspan="2">acciones </th>
+                            </tr>
+                            {% for g in gasto %}
+                            <tr>
+                                <td>{{g.id}}</td>
+                                <td>{{jue.nombre}}</td>
+                                <td>{{jue.stock}}</td>
+                                <td>
+
+                                   <a  class="btn btn-warning" href="">Modificar</a>
+                                </td>
+                                <td>
+                                   <a class="btn btn-danger" href="">Eliminar</a>
+                                </td>
+                            </tr>
+                            {% endfor %}   
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock contenido%}
