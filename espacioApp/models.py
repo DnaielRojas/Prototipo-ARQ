@@ -12,6 +12,8 @@ class Usuario(models.Model):
 
     class Meta:
         abstract = True
+    def __str__(self):
+        return u'{0}'.format(self.rut)      
 
 class TipoAdministrativo(models.Model):
     id_tipo = models.IntegerField(primary_key=True)
@@ -61,6 +63,7 @@ class Residente(Usuario):
 
     class Meta:
         db_table = "residente"
+        
 
 class Vivienda(models.Model):
     numero = models.IntegerField(primary_key=True)

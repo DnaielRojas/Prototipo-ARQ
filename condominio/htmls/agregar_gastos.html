@@ -47,14 +47,18 @@
                                 <th>fecha emision </th>
                                 <th>fecha vencimiento</th>
                                 <th>estado</th>
-                                <th>id del pago</th>}
+                                <th>id del pago</th>
                                 <th colspan="2">acciones </th>
                             </tr>
-                            {% for g in gasto %}
+                            {% for g in gastos %}
                             <tr>
-                                <td>{{g.id}}</td>
-                                <td>{{jue.nombre}}</td>
-                                <td>{{jue.stock}}</td>
+                                <td>{{g.id_gasto}}</td>
+                                <td>{{g.residente_rut.rut}}</td>
+                                <td>{{g.valor}}</td>
+                                <td>{{g.fecha_emision}}</td>
+                                <td>{{g.fecha_vencimiento}}</td>
+                                <td>{{g.estado}}</td>
+                                <td>{{g.id_pago.id_pago}}</td>
                                 <td>
 
                                    <a  class="btn btn-warning" href="">Modificar</a>
