@@ -156,3 +156,8 @@ def gastos_agregar(request):
     else:
         form = GastosForm()      
     return render(request,'agregar_gastos.html',{'form': form, 'gastos': l_gastos})
+
+
+def ver_gastos(request, rut):
+    gasto = GastoComun.objects.filter(residente_rut=rut)
+    return render(request,'gastos.html',{'gastos':gasto})

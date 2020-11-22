@@ -76,5 +76,9 @@ class ReportarForm(forms.ModelForm):
 class GastosForm (forms.ModelForm):
     class Meta:
         model= GastoComun
-        fields = ['valor', 'fecha_emision', 'fecha_vencimiento', 'estado', 'residente_rut']
+        fields = ['valor', 'fecha_emision', 'fecha_vencimiento', 'estado', 'residente_rut']        
+    valor= forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control' }))   
+    fecha_emision = forms.DateField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'yyyy-mm-dd'}))
+    fecha_vencimiento = forms.DateField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'yyyy-mm-dd'}))
+    
         

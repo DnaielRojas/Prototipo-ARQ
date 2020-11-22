@@ -8,32 +8,6 @@
         <div class="container">
             <div class="panel-blanco-redondo">
                 <div class="form-group col-sm-12">
-                    <form action="/gastos_agregar/" method="POST">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            ingrese el valor del gasto comun
-                            {{form.valor}}
-                        </div>
-                        <div class="form-group">
-                            Ingrese la fecha de emision
-                            {{form.fecha_emision}}
-                        </div>
-                        <div>
-                            ingrese fecha de vencimiento
-                            {{form.fecha_vencimiento}}
-                        </div>
-                        <div class="form-group">
-                            el estado de la cuenta
-                            {{form.estado}}
-                        </div>
-                        <div class="form-group">
-                            seleccione el rut del residente
-                            {{form.residente_rut}}
-                        </div>
-                        <div>
-                            <input class="btn btn-primary" type="submit" value="Agregar Gastos comunes" >
-                        </div>
-                    </form> 
                     <div class="table-responsive">
                         <table  class="table">
                             <thead class="thead-dark">
@@ -56,13 +30,10 @@
                                     <td>{{g.estado}}</td>
                                     <td>
 
-                                    <a  class="btn btn-warning" href="">Modificar</a>
-                                    </td>
-                                    <td>
-                                    <a class="btn btn-danger" href="">Eliminar</a>
+                                    <a  class="btn btn-danger" href="">pagar</a>
                                     </td>
                                 </tr>
-                                {% endfor %}   
+                                {% endfor %} 
                             </thead>
                         </table>
                     </div>    
