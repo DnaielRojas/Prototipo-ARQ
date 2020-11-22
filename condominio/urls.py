@@ -33,4 +33,7 @@ urlpatterns = [
     path('editar_residente_admin/<rut>/',views.editar_residente_admin),
     path('gastos_agregar/', views.gastos_agregar),
     path('gastos/<rut>/', views.ver_gastos),
+    path('eliminar_gasto/<id_gasto>/', views.eliminar_gasto),
+    path('reportar/', views.reportar),
+    path('ver_reportes/<rut>/', views.ver_reportes)
 ]

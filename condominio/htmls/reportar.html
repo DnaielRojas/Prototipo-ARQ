@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block titulo %} Bienvenido a espacioadmin {% endblock titulo %}
+{% load static %}
+
+{% block contenido%}
+<body>
+    <div class="fondo-home">
+        <div class="cont">
+            <div class="panel-blanco-redondo">
+                <form action="/reportar/" method="POST">
+                    {% csrf_token %}
+                    {{form}}
+                    <input class="btn btn-primary" type="submit" value="Reportar Situación" >
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock contenido%}

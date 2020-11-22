@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block titulo %} Bienvenido a espacioadmin {% endblock titulo %}
+{% load static %}
+
+{% block contenido%}
+<body>
+    <div class="fondo-home">
+        {% for rep in reports %}
+        <div class="cont">
+            <div class="panel-blanco-redondo">
+                <div class="col-sm-12">
+                    <h2><kbd>Id: {{rep.id_reporte}}</kbd></h2>
+                </div>
+                <div class="col-sm-12">
+                    <h3>Razón: </h3>
+                    <h4>{{rep.tipo_reporte.nombre}}</h4>
+                </div>
+                <div class="col-sm-12">
+                    <h3>Mensaje: </h3>
+                    <h4>{{rep.mensaje}}</h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+{% endblock contenido%}

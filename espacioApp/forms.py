@@ -70,8 +70,7 @@ class ReservaForm(forms.ModelForm):
 class ReportarForm(forms.ModelForm):
     class Meta:
         model = Reporte
-        fields = ['id_reporte','residente_rut']
-    tipo_reporte = forms.ModelChoiceField(queryset=TipoReporte.objects.all())
+        fields = ['mensaje', 'tipo_reporte', 'residente_rut']
 
 class GastosForm (forms.ModelForm):
     class Meta:
@@ -80,5 +79,3 @@ class GastosForm (forms.ModelForm):
     valor= forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control' }))   
     fecha_emision = forms.DateField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'yyyy-mm-dd'}))
     fecha_vencimiento = forms.DateField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'yyyy-mm-dd'}))
-    
-        

@@ -154,10 +154,33 @@ def gastos_agregar(request):
             except:
                 pass
     else:
-        form = GastosForm()      
+        form = GastosForm()
     return render(request,'agregar_gastos.html',{'form': form, 'gastos': l_gastos})
 
+def eliminar_gasto(request, id_gasto):
+    gasto = GastoComun.objects.get(id_gasto=id_gasto)
+    gasto.delete()
+    l_gastos = GastoComun.objects.all()
+    form = GastosForm()
+    return render(request,'agregar_gastos.html',{'form': form, 'gastos': l_gastos})
 
 def ver_gastos(request, rut):
     gasto = GastoComun.objects.filter(residente_rut=rut)
     return render(request,'gastos.html',{'gastos':gasto})
+
+def reportar(request):
+    if request.method == "POST":
+        form = ReportarForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/herramientas')
+            except:
+                pass
+    else:
+        form = ReportarForm
+    return render(request,'reportar.html',{'form':form})
+
+def ver_reportes(request, rut):
+    reports = Reporte.objects.filter(residente_rut=rut)
+    return render(request,'reportes.html',{'reports':reports})
