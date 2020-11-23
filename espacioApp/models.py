@@ -80,6 +80,8 @@ class TipoReporte(models.Model):
 
     class Meta:
         db_table = "tipo_reporte"
+    def __str__(self):
+        return u'{0}'.format(self.nombre)     
 
 class Reporte(models.Model):
     id_reporte = models.AutoField(primary_key=True)

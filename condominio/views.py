@@ -53,7 +53,7 @@ def registro(request):
                 habilitado=1)
             nuevoResidente.save()
             messages.success(request,'Registro Exitoso')
-            return redirect('/')
+            return redirect('/login')
         else:
             messages.success(request,'Registro Incorrecto: Error de formulario')
             return redirect('/registro')

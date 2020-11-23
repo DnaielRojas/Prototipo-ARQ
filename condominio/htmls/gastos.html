@@ -8,6 +8,9 @@
         <div class="container">
             <div class="panel-blanco-redondo">
                 <div class="form-group col-sm-12">
+                    <div class="form-group">
+                        <h1> <kbd>Gastos comunes </kbd></h1>
+                    </div>
                     <div class="table-responsive">
                         <table  class="table">
                             <thead class="thead-dark">
@@ -17,7 +20,6 @@
                                     <th>valor  </th>
                                     <th>fecha emision </th>
                                     <th>fecha vencimiento</th>
-                                    <th>estado</th>
                                     <th colspan="2">acciones </th>
                                 </tr>
                                 {% for g in gastos %}
@@ -27,7 +29,6 @@
                                     <td>{{g.valor}}</td>
                                     <td>{{g.fecha_emision}}</td>
                                     <td>{{g.fecha_vencimiento}}</td>
-                                    <td>{{g.estado}}</td>
                                     <td>
 
                                     <a  class="btn btn-danger" href="">pagar</a>
