@@ -80,17 +80,17 @@ def logout(request):
 @login_required(login_url='/')
 def perfil(request):
     return render(request, 'perfil.html', {})
-
+@login_required(login_url='/')
 def mod_perfil_residente(request, rut):
     usu = Residente.objects.get(rut=rut)
     usu_form = ResidenteForm(instance=usu)
     return render(request,'modificar_perfil.html',{'usu_form':usu_form,'rut':usu.rut})
-
+@login_required(login_url='/')
 def mod_perfil_administrativo(request, rut):
     adm = Administrativo.objects.get(rut=rut)
     adm_form = AdministrativoForm(instance=adm)
     return render(request,'modificar_perfil_admin.html',{'adm_form':adm_form,'rut':adm.rut})
-
+@login_required(login_url='/')
 def editar_residente(request, rut):
     usu = Residente.objects.get(rut=rut)
     if request.method == "POST":
@@ -101,7 +101,7 @@ def editar_residente(request, rut):
             except:
                 pass
     return render(request,'perfil.html')
-
+@login_required(login_url='/')
 def editar_admin(request, rut):
     adm = Administrativo.objects.get(rut=rut)
     if request.method == "POST":
@@ -112,12 +112,12 @@ def editar_admin(request, rut):
             except:
                 pass
     return render(request,'perfil.html')
-
+@login_required(login_url='/')
 def mod_residente_admin(request, rut):
     res = Residente.objects.get(rut=rut)
     form = ModificarResidenteForm(instance=res)
     return render(request,'modificar_perfil.html',{'form':form,'resrut':res.rut})
-
+@login_required(login_url='/')
 def editar_residente_admin(request, rut):
     usu = Residente.objects.get(rut=rut)
     if request.method == "POST":
@@ -134,7 +134,7 @@ def editar_residente_admin(request, rut):
     filtro = ResidenteFiltro(request.GET, queryset=residentes)
     residentes  = filtro.qs
     return render(request,'administrar_usuarios.html',{'form':form,'residentes':residentes,'filtro':filtro})
-
+@login_required(login_url='/')
 def gestion_usuarios(request):
     form = FiltroResidenteForm()
     residentes = Residente.objects.all()
@@ -142,7 +142,7 @@ def gestion_usuarios(request):
     filtro = ResidenteFiltro(request.GET, queryset=residentes)
     residentes  = filtro.qs
     return render(request,'administrar_usuarios.html',{'form':form,'residentes':residentes,'filtro':filtro})
-
+@login_required(login_url='/')
 def gastos_agregar(request):
     l_gastos = GastoComun.objects.all()
     if request.method == "POST":
@@ -156,18 +156,18 @@ def gastos_agregar(request):
     else:
         form = GastosForm()
     return render(request,'agregar_gastos.html',{'form': form, 'gastos': l_gastos})
-
+@login_required(login_url='/')
 def eliminar_gasto(request, id_gasto):
     gasto = GastoComun.objects.get(id_gasto=id_gasto)
     gasto.delete()
     l_gastos = GastoComun.objects.all()
     form = GastosForm()
     return render(request,'agregar_gastos.html',{'form': form, 'gastos': l_gastos})
-
+@login_required(login_url='/')
 def ver_gastos(request, rut):
     gasto = GastoComun.objects.filter(residente_rut=rut)
     return render(request,'gastos.html',{'gastos':gasto})
-
+@login_required(login_url='/')
 def reportar(request):
     if request.method == "POST":
         form = ReportarForm(request.POST)
@@ -180,7 +180,7 @@ def reportar(request):
     else:
         form = ReportarForm
     return render(request,'reportar.html',{'form':form})
-
+@login_required(login_url='/')
 def ver_reportes(request, rut):
     reports = Reporte.objects.filter(residente_rut=rut)
     return render(request,'reportes.html',{'reports':reports})
